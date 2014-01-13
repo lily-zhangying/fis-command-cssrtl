@@ -1,0 +1,20 @@
+{
+  "name": "fis-command-cssrtl",
+  "version": "0.0.0",
+  "description": "fis,fis-command-cssrtl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fis",
+    "fis-command-cssrtl"
+  ],
+  "author": {
+    "name": "fisteam"
+  },
+  "license": "MIT",
+  "readme": "ERROR: No README data found!",
+  "_id": "fis-command-cssrtl@0.0.0",
+  "_from": "fis-command-cssrtl@"
+}
