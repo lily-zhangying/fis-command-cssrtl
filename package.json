@@ -2,7 +2,7 @@
   "name": "fis-command-cssrtl",
   "version": "0.0.0",
   "description": "fis,fis-command-cssrtl",
-  "main": "index.js",
+  "main": "cssrtl.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
