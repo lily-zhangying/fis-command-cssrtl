@@ -10,14 +10,12 @@ exports.register = function(commander){
     //替换后 在css文件旁边生成 a.rtl.css
     commander
         .option('--file', 'make a single css rtl file', String)
-        .option('--root', 'make ', String)
+        .option('--root', 'make all css files in root path to css rtl file', String)
 	 	.action(function(){
 	 		function swap(file){
 	 			try{
-	 				console.log(file);
  					var output = R2.swap(fis.util.read(file));
 					var newfile = file.substring(0, file.length - 3) + 'rtl.css';
-					console.log(newfile);
 					fis.util.write(newfile, output);
 	 			}catch(e){
 	 				fis.log.error(e);
