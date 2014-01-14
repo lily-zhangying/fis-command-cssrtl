@@ -1,8 +1,7 @@
 'use strict';
 
 var R2 = require("R2"),
-    fs = require("fs"),
-    parser = require('css-parse');
+    fs = require("fs");
 
 exports.name = 'cssrtl';
 exports.desc = 'make css rtl files for cross-language layout-friendly support';
