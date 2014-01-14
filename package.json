@@ -1,6 +1,6 @@
 {
   "name": "fis-command-cssrtl",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "fis,fis-command-cssrtl",
   "main": "cssrtl.js",
   "scripts": {
