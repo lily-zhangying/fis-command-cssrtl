@@ -10,6 +10,9 @@
     "fis",
     "fis-command-cssrtl"
   ],
+  "dependencies": {
+    "R2": "1.4.1"
+  },
   "author": {
     "name": "fisteam"
   },
