@@ -9,9 +9,10 @@ exports.register = function(commander){
     //找到所有css文件
     //替换后 在css文件旁边生成 a.rtl.css
     commander
-        .option('--file', 'make a single css rtl file', String)
-        .option('--root', 'make all css files in root path to css rtl file', String)
+        .option('-f, --file', 'make a single css rtl file', String)
+        .option('-r, --root', 'make all css files in root path to css rtl file', String)
 	 	.action(function(){
+
 	 		function swap(file){
 	 			try{
  					var output = R2.swap(fis.util.read(file));
@@ -22,27 +23,46 @@ exports.register = function(commander){
 	 			}
 	 		};
 
+	 		function processFile(file){
+				if((/\.css$/i).test(file) && !(/\.rtl\.css$/i).test(file)){
+					process.stdout.write('\n Ω '.green.bold);
+					process.stdout.write('.');
+					swap(file);
+					process.stdout.write('\n');
+				}else{
+					fis.log.error("please input css file path");
+				}
+	 		};
+
+	 		function processDir(dir){
+				var files = fis.util.find(dir, /\.css$/i, /\.rtl\.css$/i);
+				process.stdout.write('\n Ω '.green.bold);
+				files.forEach(function(file){
+					process.stdout.write('.');
+					swap(file);
+				});
+				process.stdout.write('\n');
+	 		};
+
 			var args = Array.prototype.slice.call(arguments);
 			if(commander.file){
 				if(args.length >= 1 && typeof args[0] == "string"){
-					var file = fis.util.realpath(args[0]);
-					if((/\.css/i).test(file) && (/\.rtl\.css/i).test(file)){
-						swap(file);
-					}else{
-						fis.log.error("please input css file path");
-					}
+					processFile(fis.util.realpath(args[0]));
 				}else{
 					fis.log.error("please input css file path");
 				}
 			}else{
 				var dir = fis.util.realpath(process.cwd());
-				if(commander.root && args.length >= 1 && typeof args[0] == "string"){
+				if(args.length >= 1 && typeof args[0] == "string"){
 					dir = fis.util.realpath(args[0]);
 				}
-				var files = fis.util.find(dir, /\.css$/i, /\.rtl\.css$/i);
-				files.forEach(function(file){
-					swap(file);
-				});
+				if(fis.util.isDir(dir)){
+					processDir(dir);
+				}else if(fis.util.isFile(dir)){
+					processFile(dir);
+				}else{
+					fis.log.error("please input valid dir or path");
+				}
 			}
 	 	});
 };
