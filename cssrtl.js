@@ -18,17 +18,6 @@ exports.register = function(commander){
                 try{
                     var content = fis.util.read(file);
                     var output = R2.swap(content, {compress: false});
-                    var BODY_reg = /((?:[\r\n\s\}]|^)body[\s]*\{)([^\}]*)(\})/ig;
-                    var BODY_HAVE_reg = /(body[\s]*\{)([^\}]*?)([direction[\s]*:[\s]*rtl[\s]*;[\s]*unicode-bidi[\s]*:[\s]*embed[\s]*;[\s]*]*)(\})/ig;
-                    if(BODY_HAVE_reg.test(output)){
-                        output = output.replace(BODY_HAVE_reg, function(m, a, b ,c, d){
-                            return (a + b + ';direction:rtl;unicode-bidi:embed;\n ' + d);
-                        });
-                    }else if(BODY_reg.test(output)){
-                        output = output.replace(BODY_reg, function(m, a, b, c, d){
-                            return (a + b + 'direction:rtl;unicode-bidi:embed;\n' + c);
-                        });
-                    }
                     var newfile = file.substring(0, file.length - 3) + 'rtl.css';
                     fis.util.write(newfile, output);
                 }catch(e){
