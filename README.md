@@ -22,10 +22,6 @@ fis css rtl 转换工具
 
 转换范围：
 
-1. direction
-
-body{.... } => body{.... ;direction:rtl;unicode-bidi:embed;}
-
 1. margin
 
 margin-left:100px; => margin-right:100px;
@@ -84,5 +80,4 @@ border-radius:0 1px 2px 3px; => border-radius:0 3px 2px 1px;
 1. 测试单文件转换
 2. 测试目录转换
 3. 测试递归目录转换
-4. 测试转换范围的第一条。其他均有自动化用例
 5. 测试源文件内容改变后，再次转换，*.rtl.css文件内容改变
