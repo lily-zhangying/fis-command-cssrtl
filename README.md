@@ -24,36 +24,36 @@ fis css rtl 转换工具
 
 1. margin
 
-margin-left:100px; => margin-right:100px;
+    margin-left:100px; => margin-right:100px;
 
-margin-right:100px; => margin-left:100px;
+    margin-right:100px; => margin-left:100px;
 
-margin: 1px 2px 3px 4px => margin: 1px 4px 3px 2px
+    margin: 1px 2px 3px 4px => margin: 1px 4px 3px 2px
 
 2. padding同margin
 
 3. text-align
 
-text-align:left => text-align:right
+    text-align:left => text-align:right
 
-text-align:right => text-align:left
+    text-align:right => text-align:left
 
 4. float
-float: left; => float: right;
+    float: left; => float: right;
 
-float: right; => float: left;
+    float: right; => float: left;
 
 4. border
 
-p{border-right:1px;} => p{border-left:1px;}
+    p{border-right:1px;} => p{border-left:1px;}
 
-p{border-color:#000 #111 #222 #333;} => p{border-color:#000 #333 #222 #111;}
+    p{border-color:#000 #111 #222 #333;} => p{border-color:#000 #333 #222 #111;}
 
-p{border-width:0 1px 2px 3px;} => p{border-width:0 3px 2px 1px;}
+    p{border-width:0 1px 2px 3px;} => p{border-width:0 3px 2px 1px;}
 
 5. border-radious
 
-border-radius:0 1px 2px 3px; => border-radius:0 3px 2px 1px;
+    border-radius:0 1px 2px 3px; => border-radius:0 3px 2px 1px;
 
 6. background-position
 
@@ -74,10 +74,3 @@ border-radius:0 1px 2px 3px; => border-radius:0 3px 2px 1px;
 10. noflip
 
     /* @noflip */ p {margin-left: 5px;} => p{margin-left:5px;}
-
-
-测试：
-1. 测试单文件转换
-2. 测试目录转换
-3. 测试递归目录转换
-5. 测试源文件内容改变后，再次转换，*.rtl.css文件内容改变
